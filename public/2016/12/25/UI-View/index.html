@@ -4,18 +4,24 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>English Layout | JerryBean&#39;s Blog</title>
+  <title>Android：关于 View 应该知道的一切 | JerryBean&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ComparativeWith the release of the new iPad we are clearly seeing a shift in the market of tablets with various users opting for a cheaper android tablet then paying premium price for an iPad.Every ti">
+  <meta name="description" content="这里讲解视图绘制。View的绘制是从ViewRoot的performTraversals方法开始的，遍历View树，每一个View都经过measure, layout和draw三个过程最终呈现，其中，measure用于测量View的宽高，layout用于确定View在父容器中的位置，draw负责绘制到屏幕。…
+
+http://5a7d9970.fromwiz.com/share/s/1qvpBM">
 <meta property="og:type" content="article">
-<meta property="og:title" content="English Layout">
-<meta property="og:url" content="http://binzhihao.github.io/2016/06/17/test2/index.html">
+<meta property="og:title" content="Android：关于 View 应该知道的一切">
+<meta property="og:url" content="http://binzhihao.github.io/2016/12/25/UI-View/index.html">
 <meta property="og:site_name" content="JerryBean's Blog">
-<meta property="og:description" content="ComparativeWith the release of the new iPad we are clearly seeing a shift in the market of tablets with various users opting for a cheaper android tablet then paying premium price for an iPad.Every ti">
-<meta property="og:updated_time" content="2016-06-16T17:55:47.960Z">
+<meta property="og:description" content="这里讲解视图绘制。View的绘制是从ViewRoot的performTraversals方法开始的，遍历View树，每一个View都经过measure, layout和draw三个过程最终呈现，其中，measure用于测量View的宽高，layout用于确定View在父容器中的位置，draw负责绘制到屏幕。…
+
+http://5a7d9970.fromwiz.com/share/s/1qvpBM">
+<meta property="og:updated_time" content="2016-12-25T06:58:25.671Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="English Layout">
-<meta name="twitter:description" content="ComparativeWith the release of the new iPad we are clearly seeing a shift in the market of tablets with various users opting for a cheaper android tablet then paying premium price for an iPad.Every ti">
+<meta name="twitter:title" content="Android：关于 View 应该知道的一切">
+<meta name="twitter:description" content="这里讲解视图绘制。View的绘制是从ViewRoot的performTraversals方法开始的，遍历View树，每一个View都经过measure, layout和draw三个过程最终呈现，其中，measure用于测量View的宽高，layout用于确定View在父容器中的位置，draw负责绘制到屏幕。…
+
+http://5a7d9970.fromwiz.com/share/s/1qvpBM">
   
   
   <link rel="stylesheet" href="/css/style.css">
@@ -75,13 +81,11 @@
 					<nav class="header-menu">
 						<ul>
 						
-							<li><a href="/">主页</a></li>
-				        
 							<li><a href="/archives">全部</a></li>
 				        
 							<li><a href="/tags/mobile">移动技术</a></li>
 				        
-							<li><a href="/tags/webkit">浏览内核</a></li>
+							<li><a href="/tags/front-end">前端技术</a></li>
 				        
 							<li><a href="/tags/os">操作系统</a></li>
 				        
@@ -105,7 +109,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/test/" style="font-size: 10px;">test</a>
+						<a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/mobile/" style="font-size: 10px;">mobile</a>
 					</div>
 				</section>
 				
@@ -141,13 +145,11 @@
 			<nav class="header-menu">
 				<ul>
 				
-					<li><a href="/">主页</a></li>
-		        
 					<li><a href="/archives">全部</a></li>
 		        
 					<li><a href="/tags/mobile">移动技术</a></li>
 		        
-					<li><a href="/tags/webkit">浏览内核</a></li>
+					<li><a href="/tags/front-end">前端技术</a></li>
 		        
 					<li><a href="/tags/os">操作系统</a></li>
 		        
@@ -171,11 +173,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-test2" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-UI-View" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/06/17/test2/" class="article-date">
-  	<time datetime="2016-06-16T17:55:47.960Z" itemprop="datePublished">2016-06-17</time>
+      <a href="/2016/12/25/UI-View/" class="article-date">
+  	<time datetime="2016-12-25T06:33:51.000Z" itemprop="datePublished">2016-12-25</time>
 </a>
     </div>
   
@@ -185,7 +187,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      English Layout
+      Android：关于 View 应该知道的一切
     </h1>
   
 
@@ -194,7 +196,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test/">test</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mobile/">mobile</a></li></ul>
 	</div>
 
         
@@ -202,29 +204,16 @@
         <div class="clearfix"></div>
       </div>
       <div class="toc">
-	<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Comparative"><span class="toc-number">1.</span> <span class="toc-text">Comparative</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Conclusion-Of-The-Survey"><span class="toc-number">2.</span> <span class="toc-text">Conclusion Of The Survey</span></a></li></ol>
+	
       </div>
       
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Comparative"><a href="#Comparative" class="headerlink" title="Comparative"></a>Comparative</h3><p>With the release of the new iPad we are clearly seeing a shift in the market of tablets with various users opting for a cheaper android tablet then paying premium price for an iPad.Every time a new iPad is released the market tends to favor the new Apple product for a short period of time since the Apple fans are eager to get their hands on the latest piece of technology that has been released. But after sometime the iPad trends to fall as new android tablets are being released and majority of the consumer opting for a cheap affordable tablet.</p>
-<p>According to the latest survey of the tablet market share that has been carried out by comScore shows that the android tablet has been divided into the following market segments:</p>
-<ol>
-<li>Low cost multimedia tablets – Kindle fire</li>
-<li>Media Tablet – Samsung Galaxy Tablet series, Motorola Xoom, Toshiba AT100, Acer Picasso, Sony Tablet S</li>
-<li>Hybrid Tablet – Asus transformer series, Acer iconia, Lenovo ideapad Tablet k1</li>
-<li>Misc. Tablets – Dell Streak, Nook Color.</li>
-</ol>
-<p>The data above and according to the graph also shows that the android tablet market is growing at an incredible pace along with tablet sales also.<br><a id="more"></a><br>If you care to analyze the graph more thoroughly then you will notice some interesting trends in the android tablet market share:</p>
-<ul>
-<li>The fastest growing segment of the tablet market is the low cost multimedia and hybrid tablets which includes kindle fire and Asus transformer series.</li>
-<li>The success of tablet market doesn’t just depend on the availability of the low cost tablet such as Nook Color but it also depends on the multimedia content that is available for such devices.</li>
-<li>Even though kindle fire seems popular its success just doesn’t depend on the content it has to offer. The driving factor of its success is the low price at which it is being offered.</li>
-<li>With the release of the Nexus tablet and different versions of the Kindle fire tablet the low cost android tablet is going to be strengthened over time as more and more consumer look for an affordable multimedia tablet.</li>
-</ul>
-<h3 id="Conclusion-Of-The-Survey"><a href="#Conclusion-Of-The-Survey" class="headerlink" title="Conclusion Of The Survey"></a>Conclusion Of The Survey</h3><p>From the above survey you can notice that the iPad is going to quickly lose its market share to the emerging low cost android tablet. Unless Apple decides to launch something that will be available at the same price point as the Kindle fire or Nexus Tablet the consumer trend will shift away from the iPad.</p>
-<p>So what do you think? Do let us know on your thoughts about the low cost android tablet and if it is worth it to go for an low cost android tablet rather than a premium priced device.</p>
+        <blockquote>
+<p>这里讲解视图绘制。View的绘制是从ViewRoot的performTraversals方法开始的，遍历View树，每一个View都经过measure, layout和draw三个过程最终呈现，其中，measure用于测量View的宽高，layout用于确定View在父容器中的位置，draw负责绘制到屏幕。…</p>
+</blockquote>
+<p><a href="http://5a7d9970.fromwiz.com/share/s/1qvpBM3qcN7x2yAg0z1ZXVvc2jKTSn3_j4zL28nF1v2jqNOu" target="_blank" rel="external">http://5a7d9970.fromwiz.com/share/s/1qvpBM3qcN7x2yAg0z1ZXVvc2jKTSn3_j4zL28nF1v2jqNOu</a></p>
 
       
     </div>
@@ -232,23 +221,13 @@
   </div>
   
     
-<nav id="article-nav">
-  
-  
-    <a href="/2016/06/17/test1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">中文排版</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
-
   
 </article>
 
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="test2" data-title="English Layout" data-url="http://binzhihao.github.io/2016/06/17/test2/"></div>
+	<div class="ds-thread" data-thread-key="UI-View" data-title="Android：关于 View 应该知道的一切" data-url="http://binzhihao.github.io/2016/12/25/UI-View/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
