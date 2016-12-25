@@ -856,6 +856,7 @@ a {
   position: relative;
   border: 1px solid #ddd;
   background: #fff;
+  text-align: justify;
   -webkit-transition: all 0.2s ease-in;
 }
 .article.show {
@@ -951,6 +952,7 @@ a {
 .article-inner {
   position: relative;
   margin-bottom: 20px;
+  text-align: justify;
 }
 .article-header {
   border-left: 5px solid;
@@ -975,6 +977,7 @@ a {
   padding-right: 30px;
   padding-left: 30px;
   font-size: 16px;
+  text-align: justify;
 }
 .article-entry p {
   margin-top: 10px;
