@@ -1,0 +1,42 @@
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<html>
+<head> <style type="text/css">	 img{margin-bottom:5px;width:auto;max-width:100%;}	 body{text-align:justify;padding-left:10px;padding-right:10px;margin-top:14px;margin-bottom:30px;background-color:#ffffff}	 blockquote {background:#f8f9fa;border-left: 6px solid #4cb050; margin: 1em 0px; padding: 0.1em 10px;}	 blockquote:before {color:#ccc;font-size:4em;line-height:160%; vertical-align: -0.4em;}	 h1.title{color:#2d3136;font-size:23px;margin-top:25px;line-height:130%}	 h1{color:#2d3136;font-size:18px;text-align:justify;text-justify:inter-ideograph;line-height:160%;width:100%}	 p.appname{color:#c0c0c0;font-size:14px;margin-bottom:30px;margin-top:2px}	 p.content{font-size:17px;text-align:justify;text-justify:inter-ideograph;line-height:160%;width:100%}	 p.keywords{color:#bbbbbb;font-size:14px;margin-bottom:30px;margin-top:1px}	 </style></head>
+<body>	
+    <h1 class="title">结合源码，探索Android中的Window与DecorView - Android - 掘金 </h1>
+    <p class="appname">&nbsp;2017-09-03 13:14 &nbsp;&nbsp;&nbsp;未知来源</p>	
+    <p class="content"><blockquote></p>		    
+        <p>用心分享，你的&nbsp;<strong>点赞|转发分享</strong>&nbsp;是对我最大的鼓励，关注以及时获取最新推文。</p>
+        <p class="content"></blockquote></p>
+    <p class="content">Android中View可以说是最为重要的几个地方之一，包括事件分发，测量，绘制等等，都是非常常见的情况。那么我们要想好好掌握这些知识，就得深入了解Andorid整个View从开始到完成所经历的一系列工作。</p>
+    <p class="content">本文分析的源代码均来自Android API 24。</p>
+    <p><strong>1. Activity 和 Window</strong></p>
+    <p class="content">在Android中，Activity并不负责视图控制，它只是控制生命周期和处理事件，真正控制视图的是Window。一个Activity包含了一个Window，Window才是真正代表一个窗口，也就是说Activity可以没有Window，那就和Service没多大差别了。</p>
+    <p class="content">Window第一次出现在Activity中是在ActivityThread调用Activity的attach()方法时，通过PolicyManager创建window,实现callback方法,所以,当window接收到外界状态改变时,会调用activity的方法:</p>		   
+    <pre>
+        <code>
+            final void attach( Context context, ActivityThread aThread, Instrumentation instr, 
+                IBinder token, int ident, Application application, Intent intent,ActivityInfo info, 
+                CharSequence title, Activity parent, String id, NonConfigurationInstances lastNonConfigurationInstances, 
+                Configuration config, String referrer,IVoiceInteractor voiceInteractor) { 
+                    //在这里直接new一个Window
+                    mWindow = PolicyManager.makeNewWindow(this);
+                    //设置回调接口，当window接收系统发送给它的例如键盘和触摸屏事件,就可以通知Activity，Activity做出相应的处理
+                    mWindow.setCallback(this);
+                     ..... 
+                     //设置窗口管理器
+                     mWindow.setWindowManager( (WindowManager)context.getSystemService(Context.WINDOW_SERVICE), 
+                        mToken, mComponent.flattenToString(), ActivityInfo.FLAG_HARDWARE_ACCELERATED) != 0);
+                    }
+        </code>
+    </pre> 	 	
+    <p class="content">在attach()中，Activity新建一个PhoneWindow实例作为成员变量,这是Window的唯一一个子类。然后设置mWindow的WindowManager。</p>	       
+    <p class="content">那么DecorView是何时出现的呢？？又是如何和window产生联系呢？？</p>
+    <div><img src="https://user-gold-cdn.xitu.io/2017/8/21/71042963a68a4932a20ce7015696b52d?imageView2/0/w/1280/h/960" /></div>	
+    <p class="content">首先，如上图我们可以看到Activity中包含了 Window、DecorView、WindowManager 等成员变量，那么我们就从Activity的创建过程中去逐步寻找它们。</p>
+    <p class="content">首先在Activity中的onCreate方法中我们都会写一句setContentView的方法调用，将我们自定义的Activity布局传入。那么我们跟进该方法去看一下具体实现。</p>
+    <p class="content">通过getWindow来获取成员变量mWindow。</p>
+    <div><img src="https://user-gold-cdn.xitu.io/2017/8/21/0382211e1a30b60c8cf421a01caeaf91?imageView2/0/w/1280/h/960" /></div>	
+    <p class="content">上图是DecorView的一些初始化工作，就不再展开，有兴趣的同志们可以研究。</p>	
+    <div><img src="https://user-gold-cdn.xitu.io/2017/8/21/36ccc8c2f10d6e9583850a8d46fcdba3?imageView2/0/w/1280/h/960" /></div>	
+</body>	      
+</html>
