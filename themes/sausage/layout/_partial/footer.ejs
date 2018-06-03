@@ -1,0 +1,14 @@
+<footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; <%= date(new Date(), 'YYYY') %>
+            <% if(theme.aboutme){ %>
+                <a href="<%= theme.aboutme %>" class ="aboutme-foot-tag"> <%= config.author || config.title %></a>
+             <% } else { %>
+                 <%= config.author || config.title %>
+            <% } %>
+    	</div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,54 @@
+# Header
+menu:
+  全部: /archives
+  移动技术: /tags/mobile
+  浏览内核: /tags/webkit
+  操作系统: /tags/os
+  数据科学: /tags/data
+  
+
+# SubNav
+subnav:
+  github: "https://github.com/binzhihao"
+  #weibo: "#"
+  rss: "#"
+  #zhihu: "#"
+  #douban: "#"
+  mail: "mailto://binzhihao@outlook.com"
+  #facebook: "#"
+  #google: "#"
+  #twitter: "#"
+  #linkedin: "#"
+
+# Content
+excerpt_link: more
+fancybox: false
+mathjax: true
+
+# 是否开启动画效果
+animate: false
+
+# 是否在新窗口打开链接
+open_in_new: false
+
+# Miscellaneous
+favicon:
+
+#你的头像url
+avatar: "https://binzhihao.github.io/img/b65d997b6dc5c472c31b958a2ccf27e2.jpg"
+#是否开启分享
+share_jia: false
+share_addthis: false
+#是否开启多说评论，填写你在多说申请的项目名称 duoshuo: duoshuo-key
+#若使用disqus，请在博客config文件中填写disqus_shortname，并关闭多说评论
+duoshuo: personalblog
+#是否开启云标签
+tagcloud: true
+
+#是否开启友情链接
+#不开启——
+friends: false
+
+#是否开启“关于我”。
+#不开启——
+aboutme: false
